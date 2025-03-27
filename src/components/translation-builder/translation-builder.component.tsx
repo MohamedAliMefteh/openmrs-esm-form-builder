@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {
   TranslationProvider,
   useQuestionTranslation,
- languages } from '../interactive-builder/modals/manage-question-translation/question-translation-context';
+  languages,
+} from '../interactive-builder/modals/manage-question-translation/question-translation-context';
 import { type Schema } from '@types';
 import {
   TextInput,
@@ -16,7 +17,11 @@ import {
   TableBody,
   TableCell,
   Dropdown,
- InlineNotification , FileUploader , Accordion , AccordionItem } from '@carbon/react';
+  InlineNotification,
+  FileUploader,
+  Accordion,
+  AccordionItem,
+} from '@carbon/react';
 import styles from './translation-builder.module.scss';
 import type { Translation } from '../interactive-builder/modals/manage-question-translation/question-translation-context';
 import { extractUniqueLabelsFromSchema } from './extractUniqueLabelsFromSchema';
@@ -180,6 +185,9 @@ const TranslationBuilderContent: React.FC<TranslationBuilderProps> = ({ schema, 
               <Button>Save Translation for {selectedLanguage.language}</Button>
             </>
           ) : null}
+        </AccordionItem>
+        <AccordionItem title="Auto Generate Translations For This Form">
+          <Button>Generate translations for this form</Button>
         </AccordionItem>
       </Accordion>
     </div>
