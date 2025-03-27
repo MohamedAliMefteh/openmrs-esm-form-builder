@@ -34,6 +34,7 @@ import type { FormSchema } from '@openmrs/esm-form-engine-lib';
 import type { Schema } from '@types';
 import type { ConfigObject } from '../../config-schema';
 import styles from './form-editor.scss';
+import TranslationBuilder from '../translation-builder/translation-builder.component';
 
 interface ErrorProps {
   error: Error;
@@ -395,6 +396,7 @@ const FormEditorContent: React.FC<TranslationFnProps> = ({ t }) => {
             <TabList aria-label="Form previews">
               <Tab>{t('preview', 'Preview')}</Tab>
               <Tab>{t('interactiveBuilder', 'Interactive Builder')}</Tab>
+              <Tab>{t('translationBuilder', 'Translation Builder')}</Tab>
               {form && <Tab>{t('auditDetails', 'Audit Details')}</Tab>}
             </TabList>
             <TabPanels>
@@ -408,6 +410,9 @@ const FormEditorContent: React.FC<TranslationFnProps> = ({ t }) => {
                   isLoading={isLoadingFormOrSchema}
                   validationResponse={validationResponse}
                 />
+              </TabPanel>
+              <TabPanel>
+                <TranslationBuilder schema={schema} onSchemaChange={updateSchema} />
               </TabPanel>
               <TabPanel>{form && <AuditDetails form={form} key={form.uuid} />}</TabPanel>
             </TabPanels>

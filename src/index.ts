@@ -32,6 +32,11 @@ export const deletePageModal = getAsyncLifecycle(
   options,
 );
 
+export const translationModal = getAsyncLifecycle(
+  () => import('./components/interactive-builder/modals/manage-question-translation/question-translation.modal'),
+  options,
+);
+
 export const newSectionModal = getAsyncLifecycle(
   () => import('./components/interactive-builder/modals/section/section.modal'),
   options,

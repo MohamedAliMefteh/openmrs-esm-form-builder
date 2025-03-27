@@ -4,7 +4,7 @@ import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { useTranslation } from 'react-i18next';
 import { CopyButton, IconButton } from '@carbon/react';
-import { Draggable, Edit, TrashCan } from '@carbon/react/icons';
+import { Draggable, Edit, TrashCan , Translate } from '@carbon/react/icons';
 import { showModal } from '@openmrs/esm-framework';
 import MarkdownWrapper from '../markdown-wrapper/markdown-wrapper';
 import type { Question, Schema } from '@types';
@@ -58,6 +58,15 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
       schema,
     });
   }, [onSchemaChange, pageIndex, question, questionIndex, schema, sectionIndex]);
+
+  const launchTranslationModal = useCallback(() => {
+    const dispose = showModal('translation-modal', {
+      closeModal: () => dispose(),
+      question: question,
+      schema,
+      onSchemaChange,
+    });
+  }, [onSchemaChange, question, schema]);
 
   const { attributes, listeners, transform, isDragging, over, setNodeRef } = useDraggable({
     id: draggableId,
@@ -124,6 +133,15 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
           size="md"
         >
           <TrashCan />
+        </IconButton>
+        <IconButton
+          enterDelayMs={defaultEnterDelayInMs}
+          label={t('manageTranslation', 'Manage Translation')}
+          kind="ghost"
+          onClick={launchTranslationModal}
+          size="md"
+        >
+          <Translate />
         </IconButton>
       </div>
     </div>
