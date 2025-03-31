@@ -284,7 +284,7 @@ const FormEditorContent: React.FC<TranslationFnProps> = ({ t }) => {
           [styles.maximized]: isMaximized,
         })}
       >
-        <Column lg={responsiveSize} md={responsiveSize} className={styles.column}>
+        <Column lg={responsiveSize} md={responsiveSize} sm={4} className={styles.column}>
           <div className={styles.actionButtons}>
             {isLoadingFormOrSchema ? (
               <InlineLoading description={t('loadingSchema', 'Loading schema') + '...'} />
@@ -374,7 +374,7 @@ const FormEditorContent: React.FC<TranslationFnProps> = ({ t }) => {
             </div>
           </div>
         </Column>
-        <Column lg={8} md={8} className={styles.column}>
+        <Column lg={8} md={8} sm={4} className={styles.column}>
           <ActionButtons
             schema={schema}
             t={t}
