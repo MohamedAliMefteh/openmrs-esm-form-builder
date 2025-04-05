@@ -1,10 +1,21 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Translation, useTranslation } from 'react-i18next';
-import { ModalHeader, ModalBody, ModalFooter, Button, TextInput, Form , ComboBox , Accordion , AccordionItem , Dropdown } from '@carbon/react';
+import {
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  TextInput,
+  Form,
+  ComboBox,
+  Accordion,
+  AccordionItem,
+  Dropdown,
+} from '@carbon/react';
 import { showSnackbar } from '@openmrs/esm-framework';
 import styles from './translation-modal.scss';
 import type { Schema, Question } from '@types';
-import { TranslationProvider, useQuestionTranslation } from './question-translation-context';
+import { TranslationProvider, useQuestionTranslation } from '../../../translation-builder/translation-context';
 
 interface TranslationModalProps {
   question: Question;

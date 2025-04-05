@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  TranslationProvider,
-  useQuestionTranslation,
-  languages,
-} from '../interactive-builder/modals/manage-question-translation/question-translation-context';
+import { TranslationProvider, useQuestionTranslation, languages } from './translation-context';
 import { type Schema } from '@types';
 import {
   TextInput,
@@ -23,7 +19,7 @@ import {
   AccordionItem,
 } from '@carbon/react';
 import styles from './translation-builder.module.scss';
-import type { Translation } from '../interactive-builder/modals/manage-question-translation/question-translation-context';
+import type { Translation } from './translation-context';
 import { extractUniqueLabelsFromSchema } from './extractUniqueLabelsFromSchema';
 interface TranslationBuilderProps {
   schema: Schema;
@@ -143,7 +139,6 @@ const TranslationBuilderContent: React.FC<TranslationBuilderProps> = ({ schema, 
                 rows={tableRows}
                 headers={headers}
                 useStaticWidth={true}
-                useZebraStyles={true}
                 render={({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
                   <TableContainer>
                     <Table {...getTableProps()}>

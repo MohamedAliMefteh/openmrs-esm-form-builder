@@ -14,7 +14,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-} from '@carbon/react';
+ Dropdown } from '@carbon/react';
 import { ArrowLeft, Maximize, Minimize, Download } from '@carbon/react/icons';
 import { useParams } from 'react-router-dom';
 import { type TFunction, useTranslation } from 'react-i18next';
@@ -352,6 +352,12 @@ const FormEditorContent: React.FC<TranslationFnProps> = ({ t }) => {
                       <Download />
                     </IconButton>
                   </a>
+                  <Dropdown
+                    id="default"
+                    label="Preview the form in"
+                    items={['Arabic', 'French']}
+                    itemToString={(item) => (item ? item : '')}
+                  />
                 </>
               ) : null}
             </div>
